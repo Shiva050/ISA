@@ -1,0 +1,11 @@
+.footer-content {
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+
+.socials {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100px;
+}  

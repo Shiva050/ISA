@@ -1,0 +1,55 @@
+/* housing.css */
+#divHousing {
+    background-color: #333; /* Dark background color */
+    color: #fff; /* Text color */
+    width: 50%;
+    height: 450px;
+    float: left;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+#divHousing h1 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+#divHousing h3 {
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#divHousing p {
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+#divHousing ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    font-size: 15px;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+#divHousing li {
+    margin-bottom: 10px;
+}
+
+#imageContainer {
+    width: 50%;
+    float: left;
+    display: flex;
+    height: 450px;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+}
+
+#imageContainer img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 50%; /* Makes the image circular */
+}
