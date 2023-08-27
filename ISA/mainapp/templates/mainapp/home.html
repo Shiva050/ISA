@@ -6,7 +6,7 @@
     <title>Home</title>
     <link rel="stylesheet" href="{% static 'css/home.css' %}">   
 </head>
-<body>
+<body class="home-body">
     <div class="banner" id = "home">
         <!-- Your content here -->
         <div class="navbar">
@@ -41,6 +41,9 @@
     </div>
     <div id="housing" class="housing-container">
         {% include 'mainapp/housing.html' %}
+    </div>
+    <div id="housing" class="housing-container">
+        {% include 'mainapp/about.html' %}
     </div>
     <footer id="footer" class="footer-container">
         {% include 'mainapp/footer.html' %}

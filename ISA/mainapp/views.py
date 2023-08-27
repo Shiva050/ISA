@@ -1,5 +1,6 @@
 # mainapp/views.py
 from django.shortcuts import render
+from .models import TeamMembers
 
 # Create your views here.
 
@@ -16,7 +17,9 @@ def events(request):
     return render(request, 'mainapp/events.html')
 
 def about(request):
-    return render(request, 'mainapp/about.html')
+    advisor = TeamMembers.objects.filter(role='Faculty-Advisor').first()
+    team_members = TeamMembers.objects.exclude(pk=advisor.pk)
+    return render(request, 'team.html', {'advisor': advisor, 'team_members': team_members})
 
 def join(request):
     return render(request, 'mainapp/join.html')

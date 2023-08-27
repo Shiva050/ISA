@@ -1,0 +1,87 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    <title>Team Section</title>
+</head>
+<body>
+    <section class="team">
+        <h2 class="team-title">MEET OUR TEAM</h2>
+        <div class="team-member">
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="{{ advisor.image.url }}" alt="{{ advisor.name }}">
+                </div>
+                <h3>{{ advisor.name }}</h3>
+                <p>{{ advisor.role }}</p>
+                <div class="social-icons">
+                    {% if advisor.facebook_link %}
+                    <a href="{{ advisor.facebook_link }}"><i class="fab fa-facebook-f"></i></a>
+                    {% endif %}
+                    {% if advisor.instagram_link %}
+                    <a href="{{ advisor.instagram_link }}"><i class="fab fa-instagram"></i></a>
+                    {% endif %}
+                    {% if advisor.email %}
+                    <a href="mailto:{{ advisor.email }}"><i class="far fa-envelope"></i></a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="team-members">
+            {% for team_member in team_members %}
+                <div class="team-member" data-index="{{ forloop.counter0 }}">
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="{{ team_member.image.url }}" alt="{{ team_member.name }}">
+                        </div>
+                        <h3>{{ team_member.name }}</h3>
+                        <p>{{ team_member.role }}</p>
+                        <div class="social-icons">
+                            {% if team_member.facebook_link %}
+                            <a href="{{ team_member.facebook_link }}"><i class="fab fa-facebook-f"></i></a>
+                            {% endif %}
+                            {% if team_member.instagram_link %}
+                            <a href="{{ team_member.instagram_link }}"><i class="fab fa-instagram"></i></a>
+                            {% endif %}
+                            {% if team_member.email %}
+                            <a href="mailto:{{ team_member.email }}"><i class="far fa-envelope"></i></a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+        <button id="show-more-button" class="show-more-button">Show More</button>
+    </section>
+
+    <script>
+        const showMoreButton = document.getElementById('show-more-button');
+        const teamMembers = document.querySelectorAll('.team-members .team-member');
+        const maxVisible = 4; // Number of cards to show initially
+        let currentlyVisible = maxVisible;
+        function showMoreCards() {
+            for (let i = 0; i < teamMembers.length; i++) {
+                if (i < currentlyVisible) {
+                    teamMembers[i].style.display = 'flex';
+                } else {
+                    teamMembers[i].style.display = 'none';
+                }
+            }
+            currentlyVisible += maxVisible;
+
+            if (currentlyVisible >= teamMembers.length) {
+                showMoreButton.style.display = 'none';
+            }
+        }
+
+        showMoreButton.addEventListener('click', showMoreCards);
+        showMoreCards(); // Initially show the first batch of cards
+    </script>
+</body>
+</html>
