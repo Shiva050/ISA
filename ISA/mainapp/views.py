@@ -5,7 +5,9 @@ from .models import TeamMembers
 # Create your views here.
 
 def home(request):
-    return render(request, 'mainapp/home.html')
+    advisor = TeamMembers.objects.filter(role='Faculty-Advisor').first()
+    team_members = TeamMembers.objects.exclude(pk=advisor.pk)
+    return render(request, 'mainapp/home.html', {'advisor': advisor, 'team_members': team_members})
 
 def membership(request):
     return render(request, 'mainapp/membership.html')
@@ -17,9 +19,7 @@ def events(request):
     return render(request, 'mainapp/events.html')
 
 def about(request):
-    advisor = TeamMembers.objects.filter(role='Faculty-Advisor').first()
-    team_members = TeamMembers.objects.exclude(pk=advisor.pk)
-    return render(request, 'team.html', {'advisor': advisor, 'team_members': team_members})
+    return render(request, 'mainapp/about.html')
 
 def join(request):
     return render(request, 'mainapp/join.html')
