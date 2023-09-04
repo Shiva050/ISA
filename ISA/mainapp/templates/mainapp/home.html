@@ -15,8 +15,8 @@
                 <li><a href = "#home">Home</a></li>
                 <li><a href = "#membership">Membership</a></li>
                 <li><a href = "#housing">Housing</a></li>
-                <li><a href = "#">Events</a></li>
-                <li><a href = "#">About</a></li>
+                <li><a href = "{% url 'events' %}">Events</a></li>
+                <li><a href = "#about">About</a></li>
                 <li><a href = "#">Join ISA</a></li>
                 <li><a href = "#">Login</a></li>
             </ul>
@@ -42,12 +42,22 @@
     <div id="housing" class="housing-container">
         {% include 'mainapp/housing.html' %}
     </div>
-    <div id="housing" class="housing-container">
+    <div id="about" class="about-container">
         {% include 'mainapp/about.html' %}
     </div>
     <footer id="footer" class="footer-container">
         {% include 'mainapp/footer.html' %}
     </footer>
     <script src="{% static 'js/smooth_scroll.js' %}"></script>
+    <script>
+        window.addEventListener('scroll', function() {
+            var navbar =  document.querySelector('.navbar');
+            if(window.scrollY > 0) {
+                navbar.classList.add('scrolled')
+            } else {
+                navbar.classList.remove('scrolled')
+            }
+        });
+    </script>
 </body>
 </html>

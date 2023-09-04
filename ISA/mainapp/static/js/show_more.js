@@ -25,20 +25,38 @@ function showCards(visibleCount) {
 }
 
 function showMore() {
-    currentlyVisible += maxVisible;
-    if (currentlyVisible >= teamMembers.length) {
+    const newVisibleCount = currentlyVisible + maxVisible;
+    if(newVisibleCount >= teamMembers.length){
         showMoreButton.style.display = 'none';
     }
-    showCards(currentlyVisible);
-    const firstRowHeight = calculateFirstRowHeight(); // Calculate the height of the first row
-    teamMembersGrid.style.maxHeight = firstRowHeight + 'px'; // Set max-height to first row height
-    showLessButton.style.display = 'block';
+    showCards(newVisibleCount);
+    currentlyVisible = newVisibleCount;
+
+    const newTeamMembers = Array.from(teamMembers).slice(currentlyVisible - maxVisible, currentlyVisible);
+
+    newTeamMembers.forEach((member) => {
+        member.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+        });
+    });
+
+    showLessButton.style.display  = 'inline-block';
 }
 
 function showLess() {
     currentlyVisible = maxVisible * rowHeight;
     showCards(currentlyVisible);
-    teamMembersGrid.style.maxHeight = 'initial'; // Reset max-height to default
+
+    // Calculate the height of the first row
+    const firstRowHeight = calculateFirstRowHeight();
+
+    // Scroll back to the top of the team section smoothly
+    window.scrollTo({
+        top: firstRowHeight + document.querySelector('.team').getBoundingClientRect().top + window.scrollY,
+        behavior: 'smooth',
+    });
+
     showMoreButton.style.display = 'block';
     showLessButton.style.display = 'none';
 }
@@ -47,6 +65,7 @@ showMoreButton.addEventListener('click', showMore);
 showLessButton.addEventListener('click', showLess);
 
 // Initially show the first batch of cards
+showLessButton.style.display = 'none';
 showCards(currentlyVisible);
 if (teamMembers.length > currentlyVisible) {
     showMoreButton.style.display = 'block';

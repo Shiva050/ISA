@@ -11,6 +11,29 @@
     <title>Team Section</title>
 </head>
 <body>
+    <div class="about-section">
+        <div class="about-container">
+            <div class="content-section">
+                <div class="about-title">
+                    <h2>About Us</h2>
+                </div>
+                <div class="about-content">
+                    <h3>
+                        The Indian Student Association is an independent, non-profit student organization recognized by the University of Houston - Clear Lake.</h3>
+                        <p>A student organization that is a family to the Indian students studying away from home, we strive hard to keep India and its cultural heritage alive in our hearts. We organize cultural programs and events like Holi,Diwali and Fresher’s Party throughout the year and we do our best to help the students in times of need. Ours is a growing community which consists of not only Indian students, but also students of Non-Indian origin who would like to know and learn more about India, its culture and traditions. We welcome your participation and involvement to help us grow into a community that everyone would like to be a part of.</p>
+                </div>
+                <div class="about-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="about-image-section">
+                <img src="{% static 'media/team.jpeg' %}" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="line"></div>
     <section class="team">
         <h2 class="team-title">MEET OUR TEAM</h2>
         <div class="team-lead">
@@ -62,8 +85,10 @@
             {% endfor %}
         </div>
         
-        <button id="show-more-button" class="show-more-button">Show More <i class="fas fa-chevron-down"></i></button>
-        <button id="show-less-button" class="show-more-button">Show Less <i class="fas fa-chevron-up"></i></button>
+        <div class="team-buttons">
+            <button id="show-more-button" class="show-more-button">Show More <i class="fas fa-chevron-down"></i></button>
+            <button id="show-less-button" class="show-more-button">Show Less <i class="fas fa-chevron-up"></i></button>
+        </div>
 
     </section>
 
