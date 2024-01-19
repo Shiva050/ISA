@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'css/membership.css' %}">
+</head>
+<body class="membership-body">
+    <div class="membership-container">
+        <div class="image-container">
+            <img src="{% static 'media/IsaVersion.png' %}" alt="Image">
+        </div>
+        <div class="membership-content">
+            <div id="divMembership">
+                <h1>Membership</h1>
+                <p>
+                    Want to join hands with ISA?<br>
+                    ISA accepts members throughout the year.
+                </p>
+                <p>
+                    <strong>Membership Fee</strong>: $10<br>
+                    <strong>Validity</strong>: One academic year
+                </p>
+                <h2>Benefits of Membership</h2>
+                <ul>
+                    <li><strong>Eligible for DS Labs Scholarship:</strong>
+                        DS labs is a scholarship exclusively for the members of ISA. The scholarship award is open every fall and Spring Semesters. The award amount depends on the funds available with the financial aid office.
+                    </li>
+                    <li><strong>Discounted entry fees for all ISA events:</strong>
+                        Members are eligible for additional discounts for all events organized by ISA and also at the bake sales.
+                    </li>
+                    <li><strong>Free entry for Guest lectures and many more</strong></li>
+                </ul>
+            </div>
+            <button type="button"><span></span>Join Now</button>
+        </div>
+    </div>
+</body>
+</html>

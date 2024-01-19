@@ -1,0 +1,97 @@
+{% load static %}
+{% load custom_filters %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    <title>Team Section</title>
+</head>
+<body>
+    <div class="about-section">
+        <div class="about-container">
+            <div class="content-section">
+                <div class="about-title">
+                    <h2>About Us</h2>
+                </div>
+                <div class="about-content">
+                    <h3>
+                        The Indian Student Association is an independent, non-profit student organization recognized by the University of Houston - Clear Lake.</h3>
+                        <p>A student organization that is a family to the Indian students studying away from home, we strive hard to keep India and its cultural heritage alive in our hearts. We organize cultural programs and events like Holi,Diwali and Fresher’s Party throughout the year and we do our best to help the students in times of need. Ours is a growing community which consists of not only Indian students, but also students of Non-Indian origin who would like to know and learn more about India, its culture and traditions. We welcome your participation and involvement to help us grow into a community that everyone would like to be a part of.</p>
+                </div>
+                <div class="about-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="about-image-section">
+                <img src="{% static 'media/team.jpeg' %}" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="line"></div>
+    <section class="team">
+        <h2 class="team-title">MEET OUR TEAM</h2>
+        <div class="team-lead">
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="{% static advisor.image.url|image_path %}" alt="{{ advisor.name }}">
+                </div>
+                <div class="member-details">
+                    <h3 class="member-name">{{ advisor.name }}</h3>
+                    <p>{{ advisor.role }}</p>
+                </div>
+                <div class="social-icons">
+                    {% if advisor.facebook_link %}
+                    <a href="{{ advisor.facebook_link }}"><i class="fab fa-facebook-f"></i></a>
+                    {% endif %}
+                    {% if advisor.instagram_link %}
+                    <a href="{{ advisor.instagram_link }}"><i class="fab fa-instagram"></i></a>
+                    {% endif %}
+                    {% if advisor.email %}
+                    <a href="mailto:{{ advisor.email }}"><i class="far fa-envelope"></i></a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="team-members-grid">
+            {% for team_member in team_members %}
+                <div class="team-member" data-index="{{ forloop.counter0 }}">
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="{% static team_member.image.url|image_path %}" alt="{{ team_member.name }}">
+                        </div>
+                        <div class="member-details">
+                            <h3 class="member-name">{{ team_member.name }}</h3>
+                            <p>{{ team_member.role }}</p>
+                        </div>
+                        <div class="social-icons">
+                            {% if team_member.facebook_link %}
+                                <a href="{{ team_member.facebook_link }}"><i class="fab fa-facebook-f"></i></a>
+                            {% endif %}
+                            {% if team_member.instagram_link %}
+                                <a href="{{ team_member.instagram_link }}"><i class="fab fa-instagram"></i></a>
+                            {% endif %}
+                            {% if team_member.email %}
+                                <a href="mailto:{{ team_member.email }}"><i class="far fa-envelope"></i></a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        
+        <div class="team-buttons">
+            <button id="show-more-button" class="show-more-button">Show More <i class="fas fa-chevron-down"></i></button>
+            <button id="show-less-button" class="show-more-button">Show Less <i class="fas fa-chevron-up"></i></button>
+        </div>
+
+    </section>
+
+<script src="{% static 'js/show_more.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+.home-body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.banner {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('../media/indianbackground.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+.navbar {
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100; /* Set a higher z-index to ensure the navbar is above other content */
+    transition: height 0.5s ease;
+}
+
+.logo{
+    width: 100px; /* Set the desired width for the logo */
+    height: auto; /* Maintain aspect ratio */
+    cursor: pointer;
+    
+}
+
+.navbar ul {
+    list-style: none; /* Remove the default bullet points */
+    display: flex; /* Make the list items display as a flex container */
+    align-items: center;
+}
+
+.navbar ul li {
+    margin: 0 5px;
+    position: relative;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 2px solid transparent;
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s, border-color 0.3s, background-color 0.3s;
+}
+
+.navbar ul li a::before {
+    content: "";
+    background: #009688;
+    height: 100%;
+    width: 0;
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+    transform-origin: left center;
+    transform: scaleX(0);
+}
+
+.navbar ul li a:hover {
+    color: #009688;
+    border-color: #009688;
+    background-color: rgba(0, 150, 136, 0.1);
+}
+
+.navbar ul li a:hover::before {
+    transform: scaleX(1);
+}
+
+.navbar.scrolled {
+    background-color: rgba(200, 200, 200, 0.4); /* Greyish background color */
+    width: 90%; /* Expand to full width */
+    height: 15px; /* Reduced height for the scrolled state */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    align-items: center;
+    border-radius: 5px;
+}
+
+/* Additional styles for the scrolled state */
+.navbar.scrolled ul li a {
+    color: #333; /* Change link color when scrolled */
+}
+
+.navbar.scrolled ul li a:hover {
+    color: #fff; /* Change link color on hover when scrolled */
+}
+
+/* Adjustments for the content container when the navbar is scrolled */
+.container,
+.content {
+    top: 60px; /* Keep content below the reduced height navbar */
+}
+
+.container {
+    width: 100%;
+    position: relative; /* Change to relative */
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: white;
+}
+
+.namaste {
+    width: 200px;
+    height: auto;
+    opacity: 0.5;
+}
+
+.content {
+    width: 100%;
+    position: relative; /* Change to relative */
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: white;
+}
+
+.content h1 {
+    font-size: 50px;
+    margin-top: 80px;
+}
+
+.content p {
+    margin: 20px auto;
+    font-size: 20px;
+    font-weight: 100;
+    line-height: 25px;
+}
+
+button {
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 10px; /* Adjusted margin */
+    border-radius: 5px;
+    font-weight: bold;
+    border: 2px solid #009688;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+span {
+    background: #009688;
+    height: 100%;
+    width: 0;
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+button:hover span {
+    width: 100%;
+}
+
+button:hover {
+    border: none;
+}

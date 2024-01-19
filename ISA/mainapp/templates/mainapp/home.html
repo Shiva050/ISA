@@ -1,0 +1,63 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">   
+</head>
+<body class="home-body">
+    <div class="banner" id = "home">
+        <!-- Your content here -->
+        <div class="navbar">
+            <img src="{% static 'media/logo.png' %}" class = "logo" alt="ISA-UHCL">
+            <ul>
+                <li><a href = "#home">Home</a></li>
+                <li><a href = "#membership">Membership</a></li>
+                <li><a href = "#housing">Housing</a></li>
+                <li><a href = "{% url 'events' %}">Events</a></li>
+                <li><a href = "#about">About</a></li>
+                <li><a href = "#">Join ISA</a></li>
+                <li><a href = "#">Login</a></li>
+            </ul>
+        </div>
+
+        <div class="container" style="padding-top: 80px;">
+            <!-- <div class="namaste-img">
+                <img src="{% static 'media/namaste.png' %}" class="namaste">
+            </div> -->
+            <div class="content">
+                <h1>INDIAN STUDENT ASSOCIATION</h1>
+                <p>UNIVERSITY OF HOUSTON CLEAR LAKE</p>
+                <div class="buttons">
+                    <button type="button"><span></span>JOIN ISA</button>
+                    <button type="button"><span></span>EVENTS</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="membership" class="membership-container">
+        {% include 'mainapp/membership.html' %}
+    </div>
+    <div id="housing" class="housing-container">
+        {% include 'mainapp/housing.html' %}
+    </div>
+    <div id="about" class="about-container">
+        {% include 'mainapp/about.html' %}
+    </div>
+    <footer id="footer" class="footer-container">
+        {% include 'mainapp/footer.html' %}
+    </footer>
+    <script src="{% static 'js/smooth_scroll.js' %}"></script>
+    <script>
+        window.addEventListener('scroll', function() {
+            var navbar =  document.querySelector('.navbar');
+            if(window.scrollY > 0) {
+                navbar.classList.add('scrolled')
+            } else {
+                navbar.classList.remove('scrolled')
+            }
+        });
+    </script>
+</body>
+</html>
